@@ -5,6 +5,11 @@ using namespace std;
 
 enum board_status{ EMPTY = 0, PLAYER_1 = 1, PLAYER_2 = 2}
 
+typedef struct SPIELZUG {
+  int x;
+  int y;
+}spielzug;
+
 string output_board_line(int spielfeld[]){
  string output = "";
   for(int i = 0; i < 3; i++) {
@@ -40,7 +45,13 @@ public:
     std::cout << "3" << output_board_line(spielfeld[2]) << endl;
   }
 
-
+  int possible_move(spielzug koordinaten) {
+    if (spielfeld[koordinaten.x][koordinaten.y] == 0) {
+      return 0;
+    }else {
+      return 1;
+    }
+  }
 
 };
 

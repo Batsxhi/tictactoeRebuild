@@ -34,6 +34,47 @@ string output_board_line(int spielfeld[]){
 } 
 
 
+
+
+int search_win(int spielfeld[3][3]) {
+  int win_counter_1;
+  int win_counter_2;
+  for(int i = 0; i < 3; i++) {
+    win_counter_1 = 0;
+    win_counter_2 = 0;
+    for(int h = 0; h < 3; h++) {
+      if(spielfeld[i][h] == 1) win_counter_1++;
+      if(spielfeld[i][h] == 2) win_counter_2++;
+    }
+    if(win_counter_1 == 3) return 1;
+    if(win_counter_2 == 3) return 2;
+  }
+  for(int i = 0; i < 3; i++) {
+    win_counter_1 = 0;
+    win_counter_2 = 0;
+    for(int h = 0; h < 3; h++) {
+      if(spielfeld[h][i] == 1) win_counter_1++;
+      if(spielfeld[h][i] == 2) win_counter_2++;
+    }
+    if(win_counter_1 == 3) return 1;
+    if(win_counter_2 == 3) return 2;
+  }
+  if (spielfeld[1][1] == spielfeld[2][2] == spielfeld[3][3] != 0) return spielfeld[1][1];
+  if (spielfeld[1][3] == spielfeld[2][2] == spielfeld[3][1] != 0) return spielfeld[1][3];
+  return 0;
+}
+
+int search_draw(spielfeld[3][3]) {
+  int draw_counter;
+  for(int i = 0; i < 3; i++) {
+    for(int h = 0; h < 3; h++) {
+      if(spielfeld[i][h] == 0) return 0;
+    }
+  }
+  return 3;
+}
+
+
 class TicTacToe{
 public:
   int spielfeld[3][3];
@@ -51,6 +92,12 @@ public:
     }else {
       return 1;
     }
+  }
+
+  int check_win() {
+    if (search_win(spielfeld)) return search_win(spielfeld);
+    if (search_draw(spielfeld)) return 3;
+    return 0;
   }
 
 };

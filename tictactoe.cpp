@@ -3,7 +3,7 @@
 
 using namespace std;
 
-enum board_status{ EMPTY = 0, PLAYER_1 = 1, PLAYER_2 = 2}
+enum board_status{ EMPTY = 0, PLAYER_1 = 1, PLAYER_2 = 2};
 
 typedef struct SPIELZUG {
   int x;
@@ -23,7 +23,7 @@ string output_board_line(int spielfeld[]){
         break;
 
       case PLAYER_2:
-        output += "O "
+        output += "O ";
 
       default:
 
@@ -86,8 +86,8 @@ public:
     std::cout << "3" << output_board_line(spielfeld[2]) << endl;
   }
 
-  int possible_move(spielzug koordinaten) {
-    if (spielfeld[koordinaten.x][koordinaten.y] == 0) {
+  int possible_move(int x, int y) {
+    if (spielfeld[x][y] == 0) {
       return 0;
     }else {
       return 1;
@@ -98,6 +98,12 @@ public:
     if (search_win(spielfeld)) return search_win(spielfeld);
     if (search_draw(spielfeld)) return 3;
     return 0;
+  }
+
+  int move(int x, int y) {
+    if (!possible_move(x,y)) {
+      
+    }
   }
 
 };

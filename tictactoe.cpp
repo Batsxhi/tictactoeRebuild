@@ -100,14 +100,20 @@ public:
     return 0;
   }
 
-  int move(int x, int y) {
+  int move(int x, int y,int spieler) {
     if (!possible_move(x,y)) {
-      
+      spielfeld[x][y] = spieler;
+      return 0;
+    }else {
+      std::cout << "Feld ist belegt";
+      return 1;
     }
 
+    return 1;
+  }
 
-
-    return 0;
+  int undo_move(int x, int y) {
+    spielfeld[x][y] = 0;
   }
 
 };

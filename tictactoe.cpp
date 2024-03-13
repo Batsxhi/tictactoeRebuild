@@ -1,5 +1,5 @@
 #include <iostream>
-#include "tictactoe.h"
+// #include "tictactoe.h"
 
 using namespace std;
 
@@ -64,7 +64,7 @@ int search_win(int spielfeld[3][3]) {
   return 0;
 }
 
-int search_draw(spielfeld[3][3]) {
+int search_draw(int spielfeld[3][3]) {
   int draw_counter;
   for(int i = 0; i < 3; i++) {
     for(int h = 0; h < 3; h++) {
@@ -80,7 +80,7 @@ public:
   int spielfeld[3][3];
 
   void print() {
-    std::cout << " " << " " << "1" << " " << "2" << " " << "3" << enld;
+    std::cout << " " << " " << "1" << " " << "2" << " " << "3" << endl;
     std::cout << "1" << output_board_line(spielfeld[0]) << endl;
     std::cout << "2" << output_board_line(spielfeld[1]) << endl;
     std::cout << "3" << output_board_line(spielfeld[2]) << endl;
@@ -104,6 +104,10 @@ public:
     if (!possible_move(x,y)) {
       
     }
+
+
+
+    return 0;
   }
 
 };

@@ -114,7 +114,10 @@ public:
 
   int undo_move(int x, int y) {
     spielfeld[x][y] = 0;
+    return 0;
   }
+
+  
 
 };
 
